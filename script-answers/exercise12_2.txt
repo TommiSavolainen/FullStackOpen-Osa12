@@ -1,0 +1,18 @@
+PS C:\Users\Tommi> docker container run -it ubuntu bash
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+ff65ddf9395b: Download complete
+Digest: sha256:d4f6f70979d0758d7a6f81e34a61195677f4f4fa576eaf808b79f17499fd93d1
+Status: Downloaded newer image for ubuntu:latest
+root@82d1cdecf847:/# md /usr/src/app
+bash: md: command not found
+root@82d1cdecf847:/# mkdir /usr/src/app
+root@82d1cdecf847:/# ls
+bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@82d1cdecf847:/# cd usr/ 
+root@82d1cdecf847:/usr# cd src
+root@82d1cdecf847:/usr/src# cd app
+root@82d1cdecf847:/usr/src/app# touch index.js
+root@82d1cdecf847:/usr/src/app# ls
+index.js
+root@82d1cdecf847:/usr/src/app#
