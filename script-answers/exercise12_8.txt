@@ -1,0 +1,26 @@
+# Step 1: Run MongoDB
+docker-compose -f docker-compose.dev.yml up
+
+# Step 2: Use docker exec to get inside the container
+docker exec -it <container_name_or_id> /bin/bash
+
+# Step 3: Open Mongo CLI
+mongosh -u root -p example
+
+# Step 4: Show databases
+show dbs
+
+# Step 5: Use the correct database
+use the_database
+
+# Step 6: Show collections
+show collections
+
+# Step 7: Find existing todos
+db.todos.find({})
+
+# Step 8: Insert a new todo
+db.todos.insertOne({ text: "Increase the number of tools in my tool belt", done: false })
+
+# Step 9: Verify the new todo
+db.todos.find({})
