@@ -1,0 +1,31 @@
+# Step 1: Access the Redis container
+docker exec -it <container_name_or_id> /bin/bash
+
+# Step 2: Open the Redis CLI
+redis-cli
+
+# Step 3: Find the key
+KEYS *
+
+# Step 4: Check the value of the key
+GET added_todos
+
+# Step 5: Set the value of the counter to 9001
+SET added_todos 9001
+
+# Step 6: Verify the new value
+# Refresh the page http://localhost:3000/todos/statistics
+
+# Step 7: Create a new todo with Postman
+# URL: http://localhost:3000/todos
+# Method: POST
+# Body: { "text": "New todo" }
+
+# Step 8: Verify the counter has increased
+GET added_todos
+
+# Step 9: Delete the key
+DEL added_todos
+
+# Step 10: Verify the counter works after deletion
+# Create another new todo with Postman and check the value again
