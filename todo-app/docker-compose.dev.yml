@@ -29,8 +29,6 @@ services:
     volumes:
       - ./todo-backend:/usr/src/app
       - /usr/src/app/node_modules
-    ports:
-      - 3000:3000
     environment:
       - REDIS_URL=redis://redis:6379
       - MONGO_URL=mongodb://the_username:the_password@mongo:27017/the_database
@@ -45,16 +43,14 @@ services:
     volumes:
       - ./todo-frontend:/app
       - /app/node_modules
-    ports:
-      - 5173:5173
     environment:
-      - VITE_BACKEND_URL=http://localhost:3000
+      - VITE_BACKEND_URL=http://localhost:8080/api
     command: sh -c "npm install && npm run dev -- --host"
 
   nginx:
     image: nginx:alpine
     ports:
-      - 80:80
+      - 8080:80
     volumes:
       - ./nginx.dev.conf:/etc/nginx/conf.d/default.conf
     depends_on:

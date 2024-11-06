@@ -9,7 +9,7 @@ COPY . .
 # Install Nodemon globally
 RUN npm install -g nodemon
 # Set environment variables
-ENV VITE_BACKEND_URL=http://localhost:3000
+ENV VITE_BACKEND_URL=http://localhost:8080/api
 # Expose port 5173
 EXPOSE 5173
 # Start the application with Nodemon
