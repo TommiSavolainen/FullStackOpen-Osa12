@@ -1,24 +1,16 @@
 FROM node:18-alpine
-
 # Set the working directory
-WORKDIR /usr/src/app
-
+WORKDIR /app
 # Install dependencies
 COPY package*.json ./
 RUN npm install
-
 # Copy the rest of the application code
 COPY . .
-
 # Install Nodemon globally
 RUN npm install -g nodemon
-
 # Set environment variables
-ENV REDIS_URL=redis://redis:6379
-ENV MONGO_URL=mongodb://the_username:the_password@mongo:27017/the_database
-
-# Expose port 3000
-EXPOSE 3000
-
+ENV VITE_BACKEND_URL=http://localhost:3000
+# Expose port 5173
+EXPOSE 5173
 # Start the application with Nodemon
-CMD ["nodemon", "./bin/www"]
+CMD ["nodemon", "--watch", ".", "npm", "run", "dev", "--", "--host"]
